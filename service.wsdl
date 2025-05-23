@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="AnalyzerService"
+  targetNamespace="http://example.com/analyzer"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://example.com/analyzer"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <types>
+    <xsd:schema targetNamespace="http://example.com/analyzer">
+      <xsd:element name="analyzeUrlRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="url" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="analyzeUrlResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Score_image">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="s1" type="xsd:double"/>
+                  <xsd:element name="s2" type="xsd:double"/>
+                  <xsd:element name="s3" type="xsd:double"/>
+                  <xsd:element name="s4" type="xsd:double"/>
+                  <xsd:element name="s5" type="xsd:double"/>
+                  <xsd:element name="s6" type="xsd:double"/>
+                  <xsd:element name="s7" type="xsd:double"/>
+                  <xsd:element name="level" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Score_text">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="m1" type="xsd:double"/>
+                  <xsd:element name="m2" type="xsd:double"/>
+                  <xsd:element name="m3" type="xsd:double"/>
+                  <xsd:element name="m4" type="xsd:double"/>
+                  <xsd:element name="level" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Score_post">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="p1" type="xsd:double"/>
+                  <xsd:element name="p2" type="xsd:double"/>
+                  <xsd:element name="p3" type="xsd:double"/>
+                  <xsd:element name="level" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Score_final" type="xsd:string">
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+
+  <message name="analyzeUrlRequest">
+    <part name="parameters" element="tns:analyzeUrlRequest"/>
+  </message>
+  <message name="analyzeUrlResponse">
+    <part name="parameters" element="tns:analyzeUrlResponse"/>
+  </message>
+
+  <portType name="AnalyzerPort">
+    <operation name="analyzeUrl">
+      <input message="tns:analyzeUrlRequest"/>
+      <output message="tns:analyzeUrlResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="AnalyzerBinding" type="tns:AnalyzerPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="analyzeUrl">
+      <soap:operation soapAction="analyzeUrl"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="AnalyzerService">
+    <port name="AnalyzerPort" binding="tns:AnalyzerBinding">
+      <soap:address location="http://localhost:3000/wsdl"/>
+    </port>
+  </service>
+</definitions>

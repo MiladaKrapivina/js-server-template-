@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.input-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+input[type="text"] {
+    padding: 12px;
+    width: 60%;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 24px;
+    background: #4c98af;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #396775;
+}
+
+.metric {
+    display: flex;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.values {
+    flex: 2;
+    padding: 20px;
+    background: white;
+}
+
+.level {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.level-inner {
+    text-align: center;
+    padding: 15px;
+}
+
+.status {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    padding: 8px;
+    background: #f8f8f8;
+    border-radius: 4px;
+}
+
+
+h3 {
+    color: #333;
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.final-metric {
+     background: linear-gradient(145deg, #8e9bce, #8779cf); /* Лавандовый → сиреневый */
+    color: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.final-metric h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.final-metric .status {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* Цветовые схемы */
+.hight .level {
+  background: linear-gradient(145deg, #FFB3BA, #FFDAC1); /* Розовый → персиковый */
+}
+
+.medium .level {
+  background: linear-gradient(145deg, #e8eab5, #f9eec7); /* Мятный → салатовый */
+}
+
+.low .level {
+  background: linear-gradient(145deg, #B5EAD7, #E2F0CB); /* Лавандовый → сиреневый */
+}
+
+.none .level {
+  background: linear-gradient(145deg, #F0F4F8, #B0C4DE); /* Ледяной → голубой */
