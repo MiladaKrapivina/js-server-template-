@@ -3,23 +3,36 @@ const soap = require('soap');
 const fs = require('fs');
 const app = express();
 const port = 3000;
+const { exec } = require('child_process');
+
+const { getMetrics } = require('./api/yolov5/immet');
+
+
 
 app.use(express.static('public'));
 
 const service = {
   AnalyzerService: {
     AnalyzerPort: {
-      analyzeUrl: function(args) {
-        console.log(args)
-        // Здесь должна быть ваша логика анализа URL
-        // Заглушка с тестовыми данными
+      analyzeUrl: async function(args) {
+
+        const yoloOutput = await getMetrics();
+
         return {
-          Score_image: { s1: 0.9, s2: 0.8, s3: 0.7, s4: 0.6, s5: 0.5, s6: 0.4, s7: 0.3, level : 'hight' },
-          Score_text: { m1: 0.85, m2: 0.75, m3: 0.65, m4: 0.55, level : 'low' },
-          Score_post: { p1: 0.4, p2: 0.3, p3: 0.2, level : 'medium' },
+          Score_image: { 
+            Smax: yoloOutput.Smax, 
+            Scom: yoloOutput.Scom, 
+            Savg: yoloOutput.Savg, 
+            D: yoloOutput.Dx, 
+            Cmax: yoloOutput.Cmax, 
+            Cavg: yoloOutput.Cavg, 
+            n: yoloOutput.n, 
+            level : 'hight' },
+          Score_text: { n: 0, P: 0, Bg: 0, Nm: 0, level : 'none' },
+          Score_post: { ER: 0.98747592, VR: 24.44605010, RL: 3, level : 'low' },
           Score_final: { level : 'medium' }
         };
-      }
+      } 
     }
   }
 };

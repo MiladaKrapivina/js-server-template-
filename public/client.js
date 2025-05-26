@@ -82,7 +82,7 @@ const parseMetric = (doc, metricName, fields) => {
         fields.forEach(field => {
             const elements = metric.getElementsByTagName(field);
             result[field] = elements.length > 0 
-                ? parseFloat(elements[0].textContent).toFixed(2) 
+                ? parseFloat(elements[0].textContent).toFixed(5) 
                 : '0.00';
         });
 
@@ -153,9 +153,9 @@ const displayResults = (doc) => {
     results.innerHTML = '';
 
     try {
-        const imageData = parseMetric(doc, 'Score_image', ['s1','s2','s3','s4','s5','s6','s7']);
-        const textData = parseMetric(doc, 'Score_text', ['m1','m2','m3','m4']);
-        const postData = parseMetric(doc, 'Score_post', ['p1','p2','p3']);
+        const imageData = parseMetric(doc, 'Score_image', ['Smax','Scom','Savg','D','Cmax','Cavg', 'n']);
+        const textData = parseMetric(doc, 'Score_text', ['n','P','Bg','Nm']);
+        const postData = parseMetric(doc, 'Score_post', ['ER','VR','RL']);
         const finalData = parseMetric(doc, 'Score_final', []);
 
         results.appendChild(createMetricBlock('Score Image', imageData, imageData.level));

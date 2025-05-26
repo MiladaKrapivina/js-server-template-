@@ -22,13 +22,13 @@
             <xsd:element name="Score_image">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="s1" type="xsd:double"/>
-                  <xsd:element name="s2" type="xsd:double"/>
-                  <xsd:element name="s3" type="xsd:double"/>
-                  <xsd:element name="s4" type="xsd:double"/>
-                  <xsd:element name="s5" type="xsd:double"/>
-                  <xsd:element name="s6" type="xsd:double"/>
-                  <xsd:element name="s7" type="xsd:double"/>
+                  <xsd:element name="Smax" type="xsd:double"/>
+                  <xsd:element name="Scom" type="xsd:double"/>
+                  <xsd:element name="Savg" type="xsd:double"/>
+                  <xsd:element name="Dx" type="xsd:double"/>
+                  <xsd:element name="Cmax" type="xsd:double"/>
+                  <xsd:element name="Cavg" type="xsd:double"/>
+                  <xsd:element name="n" type="xsd:double"/>
                   <xsd:element name="level" type="xsd:string"/>
                 </xsd:sequence>
               </xsd:complexType>
@@ -36,10 +36,10 @@
             <xsd:element name="Score_text">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="m1" type="xsd:double"/>
-                  <xsd:element name="m2" type="xsd:double"/>
-                  <xsd:element name="m3" type="xsd:double"/>
-                  <xsd:element name="m4" type="xsd:double"/>
+                  <xsd:element name="n" type="xsd:double"/>
+                  <xsd:element name="P" type="xsd:double"/>
+                  <xsd:element name="Bg" type="xsd:double"/>
+                  <xsd:element name="Nm" type="xsd:double"/>
                   <xsd:element name="level" type="xsd:string"/>
                 </xsd:sequence>
               </xsd:complexType>
@@ -47,9 +47,9 @@
             <xsd:element name="Score_post">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="p1" type="xsd:double"/>
-                  <xsd:element name="p2" type="xsd:double"/>
-                  <xsd:element name="p3" type="xsd:double"/>
+                  <xsd:element name="ER" type="xsd:double"/>
+                  <xsd:element name="VR" type="xsd:double"/>
+                  <xsd:element name="RL" type="xsd:double"/>
                   <xsd:element name="level" type="xsd:string"/>
                 </xsd:sequence>
               </xsd:complexType>
